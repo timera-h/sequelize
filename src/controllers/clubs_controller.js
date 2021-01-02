@@ -11,7 +11,7 @@ const clubsController = {
   },
   addClub: async (data) => {
     // Your code here
-    return {};
+    return await Club.create(data);
   },
 };
 

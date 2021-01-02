@@ -1,6 +1,6 @@
-const { pick } = require("lodash");
+const { pick, includes } = require("lodash");
 
-const { dj, Musicalgenre, DjMusicalgenre } = require("../models");
+const { dj, Musicalgenre, DjMusicalgenre, Club } = require("../models");
 const { NotFoundError } = require("../helpers/errors");
 
 const djsController = {
@@ -17,14 +17,13 @@ const djsController = {
 
   addDj: async (data) => {
     // Your code here
-    return await dj.create(data);
+    const djs = await dj.create(data)
+    return djs ;
   },
 
   updateDj: async (name, data) => {
     // Your code here
     return dj.update(data, {where: {name}} );
-
-    // return await dj.update({where: name, data});
   },
 
   deleteDj: async (name) => {
