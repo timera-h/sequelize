@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Musicalgenre.belongsToMany(models.dj, { through : "DjMusicalGenres", foreignKey : "musicalgenre_id"});
     }
   };
   Musicalgenre.init({
